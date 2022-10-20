@@ -6,7 +6,7 @@
 /*   By: aderouba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 13:28:02 by aderouba          #+#    #+#             */
-/*   Updated: 2022/10/20 11:52:28 by aderouba         ###   ########.fr       */
+/*   Updated: 2022/10/20 13:16:23 by aderouba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,17 @@ long	ft_atol(const char *nptr)
 int	is_int(char *str)
 {
 	int		i;
+	int		start;
 	int		len;
 	long	test;
 
+	start = 0;
+	if (str[0] == '-' || str[0] == '+')
+		start++;
+	while (str[start] == '0')
+		start++;
 	len = ft_strlen(str);
-	if (len == 0 || len > 11)
+	if (len == 0 || len - start > 11)
 		return (0);
 	i = 0;
 	if (str[0] == '-' || str[0] == '+')
