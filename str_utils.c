@@ -6,7 +6,7 @@
 /*   By: aderouba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 12:39:33 by aderouba          #+#    #+#             */
-/*   Updated: 2022/10/20 10:29:46 by aderouba         ###   ########.fr       */
+/*   Updated: 2022/10/24 11:33:37 by aderouba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,22 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	res[i] = '\0';
 	return (res);
+}
+
+int	is_empty_param(int argc, char **argv)
+{
+	int		i;
+	size_t	j;
+
+	i = 1;
+	while (i < argc)
+	{
+		j = 0;
+		while (!(argv[i][j] >= '0' && argv[i][j] <= '9') && argv[i][j] != '\0')
+			j++;
+		if (ft_strlen(argv[i]) == j || ft_strlen(argv[i]) == 0)
+			return (0);
+		i++;
+	}
+	return (1);
 }

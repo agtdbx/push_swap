@@ -6,13 +6,13 @@
 /*   By: aderouba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 12:16:55 by aderouba          #+#    #+#             */
-/*   Updated: 2022/10/20 12:24:03 by aderouba         ###   ########.fr       */
+/*   Updated: 2022/10/21 15:37:37 by aderouba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate_reverse_a(t_stack *stacks, char ***res)
+void	reverse_rotate_a(t_stack *stacks, char ***res)
 {
 	int	tmp;
 	int	i;
@@ -30,7 +30,7 @@ void	rotate_reverse_a(t_stack *stacks, char ***res)
 	*res = add_word(*res, "rra");
 }
 
-void	rotate_reverse_b(t_stack *stacks, char ***res)
+void	reverse_rotate_b(t_stack *stacks, char ***res)
 {
 	int	tmp;
 	int	i;
@@ -48,7 +48,7 @@ void	rotate_reverse_b(t_stack *stacks, char ***res)
 	*res = add_word(*res, "rrb");
 }
 
-void	rotate_reverse_both(t_stack *stacks, char ***res)
+void	reverse_rotate_both(t_stack *stacks, char ***res)
 {
 	int	tmp;
 	int	i;

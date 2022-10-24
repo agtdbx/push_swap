@@ -6,7 +6,7 @@
 /*   By: aderouba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 10:53:37 by aderouba          #+#    #+#             */
-/*   Updated: 2022/10/20 12:16:43 by aderouba         ###   ########.fr       */
+/*   Updated: 2022/10/24 12:54:44 by aderouba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include <stdlib.h>
+# include <unistd.h>
 # include "ft_printf.h"
 
 typedef struct s_stack
@@ -25,6 +26,7 @@ typedef struct s_stack
 }	t_stack;
 
 // push_swap.c
+void	print_stacks(t_stack *stacks);
 void	free_and_print_error(t_stack *stacks, char **res);
 void	print_result_and_free(t_stack *stacks, char **res);
 int		main(int argc, char **argv);
@@ -40,6 +42,7 @@ t_stack	check_and_parse_params(int argc, char **argv);
 char	*join_params(int argc, char **argv);
 size_t	ft_strlen(const char *str);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+int		is_empty_param(int argc, char **argv);
 
 // str_utils2.c
 char	*ft_strdup(const char *s);
@@ -51,12 +54,14 @@ char	**ft_split(char const *s, char c);
 int		ft_atoi(const char *nptr);
 long	ft_atol(const char *nptr);
 int		is_int(char *str);
+int		abs(int value);
 
 // stack_utils.c
 void	add_to_stack(t_stack *stacks, int nb);
 int		*create_and_init_tmp(t_stack *stacks);
 void	standard_number(t_stack *stacks, int **tmp, int *value);
 int		standardization(t_stack *stacks);
+int		get_pos_in_stack(t_stack *stacks, char stack, int value);
 
 // stack_swap.c
 void	swap_a(t_stack *stacks, char ***res);
@@ -73,8 +78,16 @@ void	rotate_b(t_stack *stacks, char ***res);
 void	rotate_both(t_stack *stacks, char ***res);
 
 //stack_reverse_rotate.c
-void	rotate_reverse_a(t_stack *stacks, char ***res);
-void	rotate_reverse_b(t_stack *stacks, char ***res);
-void	rotate_reverse_both(t_stack *stacks, char ***res);
+void	reverse_rotate_a(t_stack *stacks, char ***res);
+void	reverse_rotate_b(t_stack *stacks, char ***res);
+void	reverse_rotate_both(t_stack *stacks, char ***res);
+
+//sort_utils.c
+int		is_sort(t_stack *stacks);
+int		is_in_order(t_stack *stacks, char s);
+int		get_lower_in_stack(t_stack *stacks, char s);
+
+//little_sort.c
+void	my_little_sort(t_stack *stacks, char ***res);
 
 #endif

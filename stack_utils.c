@@ -6,7 +6,7 @@
 /*   By: aderouba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 09:46:12 by aderouba          #+#    #+#             */
-/*   Updated: 2022/10/20 11:55:00 by aderouba         ###   ########.fr       */
+/*   Updated: 2022/10/21 13:18:57 by aderouba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,27 @@ int	standardization(t_stack *stacks)
 	free(stacks->val_a);
 	stacks->val_a = tmp;
 	return (0);
+}
+
+int	get_pos_in_stack(t_stack *stacks, char stack, int value)
+{
+	int	i;
+	int	size;
+	int	*tab;
+
+	size = stacks->len_a;
+	tab = stacks->val_a;
+	if (stack == 'b')
+	{
+		size = stacks->len_b;
+		tab = stacks->val_b;
+	}
+	i = 0;
+	while (i < size)
+	{
+		if (tab[i] == value)
+			return (i);
+		i++;
+	}
+	return (-1);
 }
