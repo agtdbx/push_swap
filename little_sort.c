@@ -6,13 +6,13 @@
 /*   By: aderouba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 15:56:52 by aderouba          #+#    #+#             */
-/*   Updated: 2022/10/24 12:53:25 by aderouba         ###   ########.fr       */
+/*   Updated: 2022/10/25 17:46:38 by aderouba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	aglo_sort(t_stack *stacks, char ***res)
+void	little_aglo_sort(t_stack *stacks, char ***res)
 {
 	int	top_a;
 	int	top_val_a;
@@ -41,7 +41,7 @@ void	aglo_sort(t_stack *stacks, char ***res)
 		push_b(stacks, res);
 }
 
-void	aglo(t_stack *stacks, char ***res)
+void	little_aglo(t_stack *stacks, char ***res)
 {
 	int	top_a;
 	int	top_b;
@@ -49,7 +49,7 @@ void	aglo(t_stack *stacks, char ***res)
 	top_a = stacks->len_a - 1;
 	top_b = stacks->len_b - 1;
 	if (!is_in_order(stacks, 'a'))
-		aglo_sort(stacks, res);
+		little_aglo_sort(stacks, res);
 	else
 	{
 		if (abs(stacks->val_a[top_a] - stacks->val_b[top_b]) > 1
@@ -74,7 +74,7 @@ void	my_little_sort(t_stack *stacks, char ***res)
 	nb = 0;
 	while (!is_sort(stacks) && nb < 50)
 	{
-		aglo(stacks, res);
+		little_aglo(stacks, res);
 		nb++;
 	}
 }

@@ -6,7 +6,7 @@
 #    By: aderouba <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/19 10:46:18 by aderouba          #+#    #+#              #
-#    Updated: 2022/10/24 12:52:42 by aderouba         ###   ########.fr        #
+#    Updated: 2022/10/27 16:15:39 by aderouba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ SRC = 	push_swap.c \
 		stack_rotate.c \
 		stack_reverse_rotate.c \
 		sort_utils.c \
-		little_sort.c
+		little_sort.c \
+		sort.c
 
 
 OBJ = ${SRC:.c=.o}

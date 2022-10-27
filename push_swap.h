@@ -6,7 +6,7 @@
 /*   By: aderouba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 10:53:37 by aderouba          #+#    #+#             */
-/*   Updated: 2022/10/24 12:54:44 by aderouba         ###   ########.fr       */
+/*   Updated: 2022/10/27 16:22:36 by aderouba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ typedef struct s_stack
 }	t_stack;
 
 // push_swap.c
-void	print_stacks(t_stack *stacks);
 void	free_and_print_error(t_stack *stacks, char **res);
 void	print_result_and_free(t_stack *stacks, char **res);
+char	**optimise_res(char **res);
 int		main(int argc, char **argv);
 
 // params.c
@@ -43,6 +43,7 @@ char	*join_params(int argc, char **argv);
 size_t	ft_strlen(const char *str);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		is_empty_param(int argc, char **argv);
+int		ft_strcmp(char *s1, char *s2);
 
 // str_utils2.c
 char	*ft_strdup(const char *s);
@@ -84,10 +85,17 @@ void	reverse_rotate_both(t_stack *stacks, char ***res);
 
 //sort_utils.c
 int		is_sort(t_stack *stacks);
+int		is_part_sort(t_stack *stacks, char s);
 int		is_in_order(t_stack *stacks, char s);
 int		get_lower_in_stack(t_stack *stacks, char s);
+int		all_stack_over(t_stack *stacks, char s, int value);
 
 //little_sort.c
+void	little_aglo_sort(t_stack *stacks, char ***res);
+void	little_aglo(t_stack *stacks, char ***res);
 void	my_little_sort(t_stack *stacks, char ***res);
+
+//sort.c
+void	sort(t_stack *stacks, char ***res);
 
 #endif

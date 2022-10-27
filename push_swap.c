@@ -6,43 +6,11 @@
 /*   By: aderouba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 10:53:01 by aderouba          #+#    #+#             */
-/*   Updated: 2022/10/24 12:54:01 by aderouba         ###   ########.fr       */
+/*   Updated: 2022/10/27 16:29:43 by aderouba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	print_stack_value(int value)
-{
-	if (value < 100 && value >= 0)
-		ft_printf("  ");
-	else if (value >= 0)
-		ft_printf(" ");
-	else if (value > -100)
-		ft_printf(" ");
-	ft_printf("%i", value);
-}
-
-void	print_stacks(t_stack *stacks)
-{
-	int	i;
-
-	ft_printf("a | ");
-	i = 0;
-	while (i < stacks->len_a)
-	{
-		ft_printf("%i ", stacks->val_a[i]);
-		i++;
-	}
-	ft_printf("\nb | ");
-	i = 0;
-	while (i < stacks->len_b)
-	{
-		ft_printf("%i ", stacks->val_b[i]);
-		i++;
-	}
-	ft_printf("\n\n");
-}
 
 void	free_and_print_error(t_stack *stacks, char **res)
 {
@@ -74,6 +42,54 @@ void	print_result_and_free(t_stack *stacks, char **res)
 		free(res);
 }
 
+char	**joined_instructions(char **tmp, char **res, int *i)
+{
+	*i = 0;
+	while (res[*i + 1] != NULL)
+	{
+		if ((ft_strcmp(res[*i], "ra") == 0
+				&& ft_strcmp(res[*i + 1], "rb") == 0)
+			|| (ft_strcmp(res[*i], "rb") == 0
+				&& ft_strcmp(res[*i + 1], "ra") == 0))
+		{
+			tmp = add_word(tmp, "rr");
+			(*i)++;
+		}
+		else if ((ft_strcmp(res[*i], "rra") == 0
+				&& ft_strcmp(res[*i + 1], "rrb") == 0)
+			|| (ft_strcmp(res[*i], "rrb") == 0
+				&& ft_strcmp(res[*i + 1], "rra") == 0))
+		{
+			tmp = add_word(tmp, "rrr");
+			(*i)++;
+		}
+		else
+			tmp = add_word(tmp, res[*i]);
+		(*i)++;
+	}
+	return (tmp);
+}
+
+char	**optimise_res(char **res)
+{
+	char	**tmp;
+	int		i;
+
+	tmp = malloc(sizeof(char *));
+	if (tmp == NULL)
+		return (res);
+	tmp[0] = NULL;
+	if (res[0] == NULL || res[1] == NULL)
+	{
+		free(tmp);
+		return (res);
+	}
+	tmp = joined_instructions(tmp, res, &i);
+	tmp = add_word(tmp, res[i]);
+	free(res);
+	return (tmp);
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack	stacks;
@@ -92,7 +108,11 @@ int	main(int argc, char **argv)
 	error = standardization(&stacks);
 	if (error)
 		free_and_print_error(&stacks, res);
-	my_little_sort(&stacks, &res);
+	if (stacks.len_a <= 5)
+		my_little_sort(&stacks, &res);
+	else
+		sort(&stacks, &res);
+	res = optimise_res(res);
 	print_result_and_free(&stacks, res);
 	return (0);
 }
