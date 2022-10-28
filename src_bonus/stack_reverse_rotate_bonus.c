@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_reverse_rotate.c                             :+:      :+:    :+:   */
+/*   stack_reverse_rotate_bonus.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aderouba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 12:16:55 by aderouba          #+#    #+#             */
-/*   Updated: 2022/10/21 15:37:37 by aderouba         ###   ########.fr       */
+/*   Updated: 2022/10/28 11:52:24 by aderouba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
-void	reverse_rotate_a(t_stack *stacks, char ***res)
+void	reverse_rotate_a(t_stack *stacks)
 {
 	int	tmp;
 	int	i;
@@ -27,10 +27,9 @@ void	reverse_rotate_a(t_stack *stacks, char ***res)
 		i++;
 	}
 	stacks->val_a[stacks->len_a - 1] = tmp;
-	*res = add_word(*res, "rra");
 }
 
-void	reverse_rotate_b(t_stack *stacks, char ***res)
+void	reverse_rotate_b(t_stack *stacks)
 {
 	int	tmp;
 	int	i;
@@ -45,10 +44,9 @@ void	reverse_rotate_b(t_stack *stacks, char ***res)
 		i++;
 	}
 	stacks->val_b[stacks->len_b - 1] = tmp;
-	*res = add_word(*res, "rrb");
 }
 
-void	reverse_rotate_both(t_stack *stacks, char ***res)
+void	reverse_rotate_both(t_stack *stacks)
 {
 	int	tmp;
 	int	i;
@@ -71,5 +69,4 @@ void	reverse_rotate_both(t_stack *stacks, char ***res)
 		i++;
 	}
 	stacks->val_b[stacks->len_b - 1] = tmp;
-	*res = add_word(*res, "rrr");
 }

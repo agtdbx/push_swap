@@ -6,7 +6,7 @@
 #    By: aderouba <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/19 10:46:18 by aderouba          #+#    #+#              #
-#    Updated: 2022/10/28 10:34:59 by aderouba         ###   ########.fr        #
+#    Updated: 2022/10/28 13:52:11 by aderouba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,9 @@ SRC_BONUS = 	src_bonus/checker_bonus.c \
 				src_bonus/stack_rotate_bonus.c \
 				src_bonus/stack_reverse_rotate_bonus.c \
 				src_bonus/sort_utils_bonus.c \
+				src_bonus/sort_bonus.c \
+				src_bonus/get_next_line_bonus.c \
+				src_bonus/get_next_line_utils_bonus.c
 
 OBJ = ${SRC:.c=.o}
 

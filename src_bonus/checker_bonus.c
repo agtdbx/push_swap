@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aderouba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 17:15:46 by aderouba          #+#    #+#             */
-/*   Updated: 2022/10/28 10:23:21 by aderouba         ###   ########.fr       */
+/*   Updated: 2022/10/28 13:46:39 by aderouba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
 void	free_all(t_stack *stacks, char **res)
 {
@@ -29,20 +29,52 @@ void	free_and_print_error(t_stack *stacks, char **res)
 	exit(1);
 }
 
-void	read_std_and_check(char **res)
+int	check_buffer(char ***res, char *buffer)
 {
-	char	buffer[5];
-	int		len;
+	if (ft_strcmp(buffer, "sa\n") == 0)
+		*res = add_word(*res, "sa");
+	else if (ft_strcmp(buffer, "sb\n") == 0)
+		*res = add_word(*res, "sb");
+	else if (ft_strcmp(buffer, "ss\n") == 0)
+		*res = add_word(*res, "ss");
+	else if (ft_strcmp(buffer, "pa\n") == 0)
+		*res = add_word(*res, "pa");
+	else if (ft_strcmp(buffer, "pb\n") == 0)
+		*res = add_word(*res, "pb");
+	else if (ft_strcmp(buffer, "ra\n") == 0)
+		*res = add_word(*res, "ra");
+	else if (ft_strcmp(buffer, "rb\n") == 0)
+		*res = add_word(*res, "rb");
+	else if (ft_strcmp(buffer, "rr\n") == 0)
+		*res = add_word(*res, "rr");
+	else if (ft_strcmp(buffer, "rra\n") == 0)
+		*res = add_word(*res, "rra");
+	else if (ft_strcmp(buffer, "rrb\n") == 0)
+		*res = add_word(*res, "rrb");
+	else if (ft_strcmp(buffer, "rrr\n") == 0)
+		*res = add_word(*res, "rrr");
+	else
+		return (0);
+	return (1);
+}
+
+int	read_std_and_check(char ***res)
+{
+	char	*line;
 
 	while (1)
 	{
-		len = read(0, buffer, 4);
-		buffer[len] = '\0';
-		if (len == 0)
-			break;
-
+		line = get_next_line(0);
+		if (line == NULL)
+			break ;
+		if (check_buffer(res, line) == 0)
+		{
+			free(line);
+			return (0);
+		}
+		free(line);
 	}
-	(void)res;
+	return (1);
 }
 
 int	main(int argc, char **argv)
@@ -63,8 +95,12 @@ int	main(int argc, char **argv)
 	error = standardization(&stacks);
 	if (error)
 		free_and_print_error(&stacks, res);
-	read_std_and_check(res);
+	if (read_std_and_check(&res) == 0)
+		free_and_print_error(&stacks, res);
+	if (sort(&stacks, res))
+		ft_printf("OK\n");
+	else
+		ft_printf("KO\n");
 	free_all(&stacks, res);
-	ft_printf("OK\n");
 	return (0);
 }

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_push.c                                       :+:      :+:    :+:   */
+/*   stack_push_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aderouba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 11:09:41 by aderouba          #+#    #+#             */
-/*   Updated: 2022/10/20 12:01:04 by aderouba         ###   ########.fr       */
+/*   Updated: 2022/10/28 12:14:19 by aderouba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
-void	push_a(t_stack *stacks, char ***res)
+void	push_a(t_stack *stacks)
 {
 	int	tmp;
 
@@ -22,10 +22,9 @@ void	push_a(t_stack *stacks, char ***res)
 	stacks->val_a[stacks->len_a] = tmp;
 	stacks->len_b--;
 	stacks->len_a++;
-	*res = add_word(*res, "pa");
 }
 
-void	push_b(t_stack *stacks, char ***res)
+void	push_b(t_stack *stacks)
 {
 	int	tmp;
 
@@ -35,5 +34,4 @@ void	push_b(t_stack *stacks, char ***res)
 	stacks->val_b[stacks->len_b] = tmp;
 	stacks->len_a--;
 	stacks->len_b++;
-	*res = add_word(*res, "pb");
 }
