@@ -6,32 +6,50 @@
 #    By: aderouba <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/19 10:46:18 by aderouba          #+#    #+#              #
-#    Updated: 2022/10/27 16:15:39 by aderouba         ###   ########.fr        #
+#    Updated: 2022/10/28 10:34:59 by aderouba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
+NAME_BONUS = checker
 
-SRC = 	push_swap.c \
-		params.c \
-		ft_printf.c \
-		ft_utils.c \
-		ft_utils2.c \
-		print_fd.c \
-		str_utils.c \
-		str_utils2.c \
-		nbr_utils.c \
-		stack_utils.c \
-		stack_swap.c \
-		stack_push.c \
-		stack_rotate.c \
-		stack_reverse_rotate.c \
-		sort_utils.c \
-		little_sort.c \
-		sort.c
+SRC = 	src/push_swap.c \
+		src/params.c \
+		src/ft_printf.c \
+		src/ft_utils.c \
+		src/ft_utils2.c \
+		src/print_fd.c \
+		src/str_utils.c \
+		src/str_utils2.c \
+		src/nbr_utils.c \
+		src/stack_utils.c \
+		src/stack_swap.c \
+		src/stack_push.c \
+		src/stack_rotate.c \
+		src/stack_reverse_rotate.c \
+		src/sort_utils.c \
+		src/little_sort.c \
+		src/sort.c
 
+SRC_BONUS = 	src_bonus/checker_bonus.c \
+				src_bonus/params_bonus.c \
+				src_bonus/ft_printf_bonus.c \
+				src_bonus/ft_utils_bonus.c \
+				src_bonus/ft_utils2_bonus.c \
+				src_bonus/print_fd_bonus.c \
+				src_bonus/str_utils_bonus.c \
+				src_bonus/str_utils2_bonus.c \
+				src_bonus/nbr_utils_bonus.c \
+				src_bonus/stack_utils_bonus.c \
+				src_bonus/stack_swap_bonus.c \
+				src_bonus/stack_push_bonus.c \
+				src_bonus/stack_rotate_bonus.c \
+				src_bonus/stack_reverse_rotate_bonus.c \
+				src_bonus/sort_utils_bonus.c \
 
 OBJ = ${SRC:.c=.o}
+
+OBJ_BONUS = ${SRC_BONUS:.c=.o}
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g
@@ -43,14 +61,19 @@ INCLUDE = -I .
 $(NAME) : $(OBJ)
 	$(CC) $(CFLAGS) -o $@ $^
 
+$(NAME_BONUS) : $(OBJ_BONUS)
+	$(CC) $(CFLAGS) -o $@ $^
+
 all : $(NAME)
 
 clean :
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(OBJ_BONUS)
 
 fclean : clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(NAME_BONUS)
 
 re : fclean $(NAME)
 
-.PHONY: all clean fclean re
+bonus : $(NAME_BONUS)
+
+.PHONY: all clean fclean re bonus
