@@ -6,7 +6,7 @@
 /*   By: aderouba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 10:53:37 by aderouba          #+#    #+#             */
-/*   Updated: 2022/10/28 14:01:28 by aderouba         ###   ########.fr       */
+/*   Updated: 2022/10/28 15:17:37 by aderouba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int		push_end_a(t_stack *stacks, char ***res);
 void	put_pivot_top(t_stack *stacks, char ***res, int pivot, int pos);
 void	sort_push_a(t_stack *stacks, char ***res);
 void	butterfly_push_b_pivot(t_stack *stacks, char ***res,
-		int pivot1, int pivot2);
+			int pivot1, int pivot2);
 void	sort(t_stack *stacks, char ***res);
 
 #endif
