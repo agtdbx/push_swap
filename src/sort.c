@@ -6,7 +6,7 @@
 /*   By: aderouba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 17:45:44 by aderouba          #+#    #+#             */
-/*   Updated: 2022/10/27 16:36:26 by aderouba         ###   ########.fr       */
+/*   Updated: 2022/11/02 15:47:01 by aderouba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,8 @@ void	sort(t_stack *stacks, char ***res)
 	int	len;
 	int	max;
 
+	if (is_sort(stacks))
+		return ;
 	i = 0;
 	max = (stacks->len_a + stacks->len_b) / 50;
 	len = 0;
