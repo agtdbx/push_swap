@@ -6,7 +6,7 @@
 /*   By: aderouba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 12:16:55 by aderouba          #+#    #+#             */
-/*   Updated: 2022/10/28 11:52:24 by aderouba         ###   ########.fr       */
+/*   Updated: 2022/11/10 13:46:07 by aderouba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,25 +48,6 @@ void	reverse_rotate_b(t_stack *stacks)
 
 void	reverse_rotate_both(t_stack *stacks)
 {
-	int	tmp;
-	int	i;
-
-	if (stacks->len_a <= 1 || stacks->len_b <= 1)
-		return ;
-	tmp = stacks->val_a[0];
-	i = 1;
-	while (i < stacks->len_a)
-	{
-		stacks->val_a[i - 1] = stacks->val_a[i];
-		i++;
-	}
-	stacks->val_a[stacks->len_a - 1] = tmp;
-	tmp = stacks->val_b[0];
-	i = 1;
-	while (i < stacks->len_b)
-	{
-		stacks->val_b[i - 1] = stacks->val_b[i];
-		i++;
-	}
-	stacks->val_b[stacks->len_b - 1] = tmp;
+	reverse_rotate_a(stacks);
+	reverse_rotate_b(stacks);
 }
