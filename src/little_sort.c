@@ -6,7 +6,7 @@
 /*   By: aderouba <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 15:56:52 by aderouba          #+#    #+#             */
-/*   Updated: 2022/10/25 17:46:38 by aderouba         ###   ########.fr       */
+/*   Updated: 2022/11/08 11:42:41 by aderouba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,15 +55,13 @@ void	little_aglo(t_stack *stacks, char ***res)
 		if (abs(stacks->val_a[top_a] - stacks->val_b[top_b]) > 1
 			&& abs(stacks->val_a[0] - stacks->val_b[top_b]) > 1)
 			rotate_a(stacks, res);
-		else if (1)
+		else
 		{
 			push_a(stacks, res);
 			top_a = stacks->len_a - 1;
 			if (stacks->val_a[0] + 1 == stacks->val_a[top_a])
 				rotate_a(stacks, res);
 		}
-		else
-			push_a(stacks, res);
 	}
 }
 

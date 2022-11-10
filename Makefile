@@ -6,7 +6,7 @@
 #    By: aderouba <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/19 10:46:18 by aderouba          #+#    #+#              #
-#    Updated: 2022/10/28 13:52:11 by aderouba         ###   ########.fr        #
+#    Updated: 2022/11/08 11:55:07 by aderouba         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,15 +47,14 @@ SRC_BONUS = 	src_bonus/checker_bonus.c \
 				src_bonus/stack_reverse_rotate_bonus.c \
 				src_bonus/sort_utils_bonus.c \
 				src_bonus/sort_bonus.c \
-				src_bonus/get_next_line_bonus.c \
-				src_bonus/get_next_line_utils_bonus.c
+				src_bonus/get_next_line_bonus.c
 
 OBJ = ${SRC:.c=.o}
 
 OBJ_BONUS = ${SRC_BONUS:.c=.o}
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CC = clang
+CFLAGS = -Wall -Wextra -Werror
 INCLUDE = -I .
 
 %.o : %.c
